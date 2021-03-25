@@ -1,0 +1,25 @@
+{
+  "name": "salesource/translate",
+  "description": "Salesource Module for Google Translate Google",
+  "license": [
+        "GPL-3.0"
+    ],
+  "require": {},
+  "type": "magento2-module",
+  "authors": [
+        {
+            "name": "Salesource",
+            "email": "rafael@flightpooling.com",
+            "homepage": "http://www.salesource.eu"
+        }
+    ],
+  "version": "1.0.0",
+  "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Salesource\\Translate\\": ""
+        }
+    }
+}

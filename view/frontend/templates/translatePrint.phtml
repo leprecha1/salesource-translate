@@ -1,0 +1,53 @@
+<?php
+$isEnabled = $block->getExtensionEnabled();
+$translangs = $block->getTransLanguages();
+$speclangs = $block->getSpecficLanguages();
+$layout= $block->getTransLayout();
+$position= $block->getTransPosition();
+$currentlocale= $block->getCurrentLocale();
+$statusGoogleBar= $block->showGoogleBar();
+
+$include = '';
+if ($translangs=='specific'):
+    $include = "includedLanguages: '$speclangs',";
+endif;
+$currentlocale = strtolower(substr($currentlocale, 0, 2)) . substr($currentlocale, 2);
+
+if ($statusGoogleBar==0):
+    echo('<style>.goog-te-banner-frame{display: none;} body{top: 0 !important;}</style>');
+endif;
+
+if ($position=='default'):
+    echo('<div id="google_translate_element_print" style="display:none !important;"></div>');
+else:
+    echo('<div id="google_translate_element_print" style="float:'.
+         $block->escapeHtml($position).
+         ' !important; padding-bottom:25px; display:none !important;"></div>');
+endif;
+echo('<div style="clear:both;"></div>');
+?>
+
+<style>
+@media print{
+  #google_translate_element{
+    display:none; 
+  }
+  .goog-te-banner-frame{
+    display:none; 
+  }
+}
+</style>
+
+<script type="text/javascript">
+    function gTInit()
+    {
+        new google.translate.TranslateElement(
+                {
+                    pageLanguage: '<?= $block->escapeHtml($currentlocale); ?>',
+                    <?= /* @noEscape */ $include; ?>
+                    layout: google.translate.TranslateElement.InlineLayout.<?= $block->escapeHtml($layout); ?>},
+                'google_translate_element_print');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=gTInit"></script>

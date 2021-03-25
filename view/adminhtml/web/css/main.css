@@ -1,0 +1,13 @@
+.config-nav-block.salesource-tab strong:before {
+    background: url(../images/logoSalesource.png) no-repeat;
+    width: 45px;
+    height: 30px;
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.salesource-tab .admin__page-nav-title.title {
+    padding: 10px;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2020 Salesource LTD <http://salesource.eu>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="print" />
+    <body>
+	<referenceContainer name="page.main.title">
+            <block class="Salesource\Translate\Block\Translator"
+                   ifconfig="translate/general/enabled"
+                   name="em.google.translate.print"
+                   after="order.date"
+                   template="Salesource_Translate::translatePrint.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2018 www.salesource.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="salesource" translate="label" sortOrder="1000" class="salesource-tab">
+            <label>Salesource</label>
+        </tab>
+        <section id="translate" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Google Language Translator</label>
+            <tab>salesource</tab>
+            <resource>Salesource_Translate::translate</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="translanguages" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Translation Languages</label>
+                    <source_model>Salesource\Translate\Model\Config\Source\TransLanguages</source_model>
+                </field>
+                <field id="transposition" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Layout position</label>
+                    <source_model>Salesource\Translate\Model\Config\Source\TransPosition</source_model>
+                </field>
+                <field id="splanguages" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Languages</label>
+                    <source_model>Salesource\Translate\Model\Config\Source\Languages</source_model>
+                    <depends>
+                        <field id="translate/general/translanguages">specific</field>
+                    </depends>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                <field id="translayout" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Mode</label>
+                    <source_model>Salesource\Translate\Model\Config\Source\TransLayout</source_model>
+                </field>
+                <field id="googlebar" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Google Translate bar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

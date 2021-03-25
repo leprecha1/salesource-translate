@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2020 Salesource LTD <http://salesource.eu>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+	<referenceContainer name="header.panel">
+            <block class="Salesource\Translate\Block\Translator"
+                   ifconfig="translate/general/enabled"
+                   name="em.google.translate.main"
+                   before="store_language"
+                   template="Salesource_Translate::translate.phtml" />
+        </referenceContainer>
+	<referenceContainer name="checkout.header.wrapper">
+            <block class="Salesource\Translate\Block\Translator"
+                   ifconfig="translate/general/enabled"
+                   name="em.google.translate"
+                   template="Salesource_Translate::translate.phtml" />
+        </referenceContainer>
+    </body>
+</page>
